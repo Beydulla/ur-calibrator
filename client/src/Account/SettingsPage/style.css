@@ -1,0 +1,112 @@
+.menu {
+    margin-bottom: 16px;
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+}
+
+menu, nav, section {
+    display: block;
+}
+* {
+    box-sizing: border-box;
+}
+user agent stylesheet
+nav {
+    display: block;
+}
+body {
+    word-wrap: break-word;
+}
+body {
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #24292e;
+    background-color: #fff;
+}
+.menu-item.selected, .menu-item[aria-current]:not([aria-current=false]), .menu-item[aria-selected=true] {
+    cursor: default;
+}
+.menu-item:first-child, .menu-item:first-child:before {
+    border-top-left-radius: 6px;
+}
+.menu-item:first-child {
+    border-top: 0;
+    border-top-right-radius: 6px;
+}
+.menu-item {
+    position: relative;
+    display: block;
+    padding: 8px 16px;
+    color: #1b1f23;
+    border-bottom: 1px solid #eaecef;
+}
+a {
+    color: #0366d6;
+    text-decoration: none;
+}
+a {
+    background-color: initial;
+}
+* {
+    box-sizing: border-box;
+}
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.menu {
+    margin-bottom: 16px;
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+}
+body {
+    word-wrap: break-word;
+}
+body {
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #24292e;
+    background-color: #fff;
+}
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+.menu-item.selected:before, .menu-item[aria-current]:not([aria-current=false]):before, .menu-item[aria-selected=true]:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    content: "";
+    background-color: #f9826c;
+}
+.menu-item:first-child, .menu-item:first-child:before {
+    border-top-left-radius: 6px;
+}
+
+.flex-shrink-0 {
+    flex-shrink: 0!important;
+}
+.settings-navbar {
+    width: 20%;
+}
+.settings-content {
+    width: 80%;
+    padding-left: 5%;
+}
+.settings-container {
+    display: flex!important;
+    padding-top: 20px;
+}
+
+

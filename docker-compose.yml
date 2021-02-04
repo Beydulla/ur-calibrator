@@ -1,0 +1,61 @@
+version: '2.1'
+
+x-common-variables: &common-variables
+  DB_USER: root
+  DB_PASSWORD: 
+  DB_NAME: ur_collibrator
+  DB_HOST: mysql
+
+services:
+    
+    mysql:
+        build: ./db
+        environment:
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+        healthcheck:
+            test: "mysql --user=root --password= --execute \"SHOW DATABASES;\""
+            timeout: 20s
+            retries: 10
+        ports:
+            - 3306:3306    
+    
+    phpmyadmin:
+        depends_on:
+            - mysql
+        image: phpmyadmin/phpmyadmin
+        environment:
+            PMA_HOST: mysql
+        ports:
+            - 80:80
+        restart: always
+    
+    server:
+        depends_on:
+            mysql:
+                condition: service_healthy
+        build: ./server
+
+        ports:
+            - 3800:3800
+        environment:
+            <<: *common-variables
+    
+    client:
+        build:
+            context: ./client/
+        command: npm start
+        image: webpack
+        volumes:
+            - ./client/:/usr/src/client
+            -  /usr/src/client/node_modules
+        depends_on:
+            - server
+        ports:
+            - "3200:3200"
+
+    python_service:
+        build: ./python-calibrator-service
+        ports:
+            - "5002:5002"
+        depends_on:
+            - server

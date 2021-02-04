@@ -1,0 +1,32 @@
+import numpy as np
+
+
+def loadMeasurement(file_name, delimiter=';'):
+    fid = open(file_name)
+    t_line = fid.readline()
+    fid.close()
+    temp_file = open("temp.txt", 'w')
+    temp_file.write(t_line)
+    temp_file.close()
+    temp_file = open("temp.txt")
+    header = np.loadtxt(temp_file, dtype='S', delimiter=delimiter)
+    temp_file.close()
+    fin = open(file_name, 'r')
+    data = fin.read().splitlines(True)
+    fin.close()
+    fout = open('newFile.txt', 'w')
+    fout.writelines(data[1:])
+    fout.close()
+    fid = open('newFile.txt')
+    temp_file = open("temp.txt", 'w')
+    s = fid.read().strip().replace('\n', ';')
+    temp_file.write(s)
+    temp_file.close()
+    temp_file = open("temp.txt")
+    content = np.loadtxt(temp_file, delimiter=delimiter)
+    n_fields = len(header)
+    n_num = len(content)
+    output = np.transpose(content)
+    output = output.reshape((n_fields, int(n_num/n_fields)), order='F')
+    print(len(output))
+    return output

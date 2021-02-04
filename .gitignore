@@ -1,0 +1,7 @@
+server/.env
+*.env
+server/node_modules
+server/resources
+client/node_modules
+.idea
+aws-private_key.ppk
